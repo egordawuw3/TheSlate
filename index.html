@@ -11,15 +11,16 @@
     <meta name="author" content="THE SLATE">
     <link rel="canonical" href="https://vasy-site-url.com/">
     
-    <!-- Предзагрузка главного изображения для скорости (LCP) -->
-    <link rel="preload" as="image" href="https://ipoolgoo.ru/wp-content/themes/iplg_theme/img/hero-img-06-dt.webp">
+    <!-- ИСПРАВЛЕНО: Предзагрузка главного изображения для скорости (LCP) -->
+    <link rel="preload" as="image" href="assets/hero.jpg">
 
     <!-- Open Graph (VK, Telegram, Facebook) -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://vasy-site-url.com/">
     <meta property="og:title" content="THE SLATE | Архитектурные каркасные бассейны">
     <meta property="og:description" content="Эстетика стационарного водоема и безупречная интеграция в ваш экстерьер за 1 день.">
-    <meta property="og:image" content="https://ipoolgoo.ru/wp-content/themes/iplg_theme/img/hero-img-06-dt.webp">
+    <!-- ИСПРАВЛЕНО: OG Image -->
+    <meta property="og:image" content="https://vasy-site-url.com/assets/hero.jpg">
     <meta property="og:site_name" content="THE SLATE">
     <meta property="og:locale" content="ru_RU">
 
@@ -27,7 +28,8 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="THE SLATE | Каркасные системы">
     <meta name="twitter:description" content="Премиальные каркасные системы нового поколения за 1 день.">
-    <meta name="twitter:image" content="https://ipoolgoo.ru/wp-content/themes/iplg_theme/img/hero-img-06-dt.webp">
+    <!-- ИСПРАВЛЕНО: Twitter Image -->
+    <meta name="twitter:image" content="https://vasy-site-url.com/assets/hero.jpg">
 
     <meta name="theme-color" content="#121214">
     
@@ -42,7 +44,7 @@
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
       "name": "THE SLATE",
-      "image": "https://ipoolgoo.ru/wp-content/themes/iplg_theme/img/hero-img-06-dt.webp",
+      "image": "https://vasy-site-url.com/assets/hero.jpg",
       "description": "Проектирование и монтаж премиальных архитектурных каркасных бассейнов.",
       "url": "https://vasy-site-url.com",
       "priceRange": "$$$",
@@ -165,10 +167,11 @@
             position: relative; overflow: hidden; padding: 0 5vw;
         }
         
+        /* ИСПРАВЛЕНО: Background URL обновлен на assets/hero.jpg */
         .hero-img {
             position: absolute; top: 0; left: 0; width: 100%; height: 120%;
             object-fit: cover; z-index: -2;
-            background: url('https://ipoolgoo.ru/wp-content/themes/iplg_theme/img/hero-img-06-dt.webp') center/cover no-repeat;
+            background: url('assets/hero.jpg') center/cover no-repeat;
             will-change: transform;
         }
 
@@ -479,7 +482,7 @@
     <section class="philosophy" id="philosophy">
         <div class="container">
             <div class="phil-img fade-up">
-                <img src="https://ipoolgoo.ru/wp-content/uploads/13-334x445.webp" alt="Процесс установки архитектурного бассейна Slate" loading="lazy">
+                <img src="assets/photo.webp" alt="Процесс установки архитектурного бассейна Slate" loading="lazy">
             </div>
             <div class="phil-text fade-up" style="transition-delay: 0.1s;">
                 <div style="margin-bottom: 24px;" class="tech-font">
@@ -546,12 +549,12 @@
         <div class="container">
             <h2 class="fade-up">Эстетика интеграции</h2>
             <div class="gal-grid">
-                <div class="gal-item fade-up"><img src="https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?q=80&w=1000&auto=format&fit=crop" alt="Архитектурный каркасный бассейн, интегрированный в ландшафт" loading="lazy"></div>
-                <div class="gal-item fade-up" style="transition-delay: 0.1s;"><img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?q=80&w=1000&auto=format&fit=crop" alt="Интеграция бассейна THE SLATE с деревянной террасой" loading="lazy"></div>
-                <div class="gal-item fade-up" style="transition-delay: 0.2s;"><img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=1000&auto=format&fit=crop" alt="Премиальный бассейн на территории загородной виллы" loading="lazy"></div>
-                <div class="gal-item fade-up"><img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1000&auto=format&fit=crop" alt="Современное архитектурное решение для водоема" loading="lazy"></div>
-                <div class="gal-item fade-up" style="transition-delay: 0.1s;"><img src="https://images.unsplash.com/photo-1613490900233-141c5560d75d?q=80&w=1000&auto=format&fit=crop" alt="Дизайн зоны отдыха с каркасной системой" loading="lazy"></div>
-                <div class="gal-item fade-up" style="transition-delay: 0.2s;"><img src="https://images.unsplash.com/photo-1572120360610-d971b9d7767c?q=80&w=1000&auto=format&fit=crop" alt="Вечерний экстерьер с подсветкой бассейна" loading="lazy"></div>
+                <div class="gal-item fade-up"><img src="assets/photo.webp" alt="Архитектурный каркасный бассейн, интегрированный в ландшафт" loading="lazy"></div>
+                <div class="gal-item fade-up" style="transition-delay: 0.1s;"><img src="assets/photo2.webp" alt="Интеграция бассейна THE SLATE с деревянной террасой" loading="lazy"></div>
+                <div class="gal-item fade-up" style="transition-delay: 0.2s;"><img src="assets/photo3.webp" alt="Премиальный бассейн на территории загородной виллы" loading="lazy"></div>
+                <div class="gal-item fade-up"><img src="assets/photo4.webp" alt="Современное архитектурное решение для водоема" loading="lazy"></div>
+                <div class="gal-item fade-up" style="transition-delay: 0.1s;"><img src="assets/photo5.webp" alt="Дизайн зоны отдыха с каркасной системой" loading="lazy"></div>
+                <div class="gal-item fade-up" style="transition-delay: 0.2s;"><img src="assets/photo6.webp" alt="Вечерний экстерьер с подсветкой бассейна" loading="lazy"></div>
             </div>
         </div>
     </section>
@@ -565,7 +568,7 @@
                 <!-- Модель 1 -->
                 <div class="model-card fade-up">
                     <div class="card-img">
-                        <img src="https://images.unsplash.com/photo-1560185007-c5ca9d2c014d?q=80&w=800&auto=format&fit=crop" alt="Бассейн THE SLATE модель EGM" loading="lazy">
+                        <img src="assets/EGM.webp" alt="Бассейн THE SLATE модель EGM" loading="lazy">
                     </div>
                     <div class="card-info">
                         <div class="card-name tech-font">EGM</div>
@@ -584,7 +587,7 @@
                 <!-- Модель 2 -->
                 <div class="model-card fade-up" style="transition-delay: 0.1s;">
                     <div class="card-img">
-                        <img src="https://images.unsplash.com/photo-1628624747186-a941c476b7ef?q=80&w=800&auto=format&fit=crop" alt="Бассейн THE SLATE модель EGL" loading="lazy">
+                        <img src="assets/EGl.webp" alt="Бассейн THE SLATE модель EGL" loading="lazy">
                     </div>
                     <div class="card-info">
                         <div class="card-name tech-font">EGL</div>
@@ -603,7 +606,7 @@
                 <!-- Модель 3 -->
                 <div class="model-card fade-up">
                     <div class="card-img">
-                        <img src="https://images.unsplash.com/photo-1571408899898-3850cb1fbd29?q=80&w=800&auto=format&fit=crop" alt="Бассейн THE SLATE модель EGXL" loading="lazy">
+                        <img src="assets/EGXL.webp" alt="Бассейн THE SLATE модель EGXL" loading="lazy">
                     </div>
                     <div class="card-info">
                         <div class="card-name tech-font">EGXL</div>
@@ -623,7 +626,7 @@
                 <div class="model-card fade-up" style="transition-delay: 0.1s;">
                     <div class="card-img">
                         <span class="badge-new tech-font">New</span>
-                        <img src="https://images.unsplash.com/photo-1583847268964-b28ce8f30d67?q=80&w=800&auto=format&fit=crop" alt="Новинка: Бассейн THE SLATE модель EG2XL" loading="lazy">
+                        <img src="assets/EG2XL.webp" alt="Новинка: Бассейн THE SLATE модель EG2XL" loading="lazy">
                     </div>
                     <div class="card-info">
                         <div class="card-name tech-font">EG2XL</div>
