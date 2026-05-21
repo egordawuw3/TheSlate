@@ -708,105 +708,101 @@
         </div>
     </footer>
 
-    <!-- Scripts -->
 <!-- Scripts -->
-    <script>
-        // 1. Оптимизированный Navbar scroll effect
-        const navbar = document.getElementById('navbar');
-        let isNavTicking = false;
+<script>
+    // 1. ОПТИМИЗИРОВАННЫЙ ОБРАБОТЧИК СКРОЛЛА (Устраняет "Принудительную компоновку")
+    const navbar = document.getElementById('navbar');
+    const heroImg = document.getElementById('hero-img');
+    const isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+    
+    let winHeight = window.innerHeight;
+    let isScrolling = false;
 
-        window.addEventListener('scroll', () => {
-            if (!isNavTicking) {
-                window.requestAnimationFrame(() => {
-                    if (window.scrollY > 50) {
-                        navbar.classList.add('scrolled');
-                    } else {
-                        navbar.classList.remove('scrolled');
-                    }
-                    isNavTicking = false;
-                });
-                isNavTicking = true;
-            }
-        }, { passive: true });
+    // Кешируем высоту окна только при ресайзе (экономим ресурсы)
+    window.addEventListener('resize', () => { 
+        winHeight = window.innerHeight; 
+    }, { passive: true });
 
-        // 2. Mobile Menu Toggle & Scroll Lock Logic
-        const burger = document.getElementById('burger');
-        const navLinks = document.getElementById('nav-links');
-        
-        function closeMenu() {
-            navLinks.classList.remove('active');
-            burger.classList.remove('active');
-            document.body.classList.remove('menu-open');
-        }
+    // Единый цикл для навбара и параллакса
+    window.addEventListener('scroll', () => {
+        if (!isScrolling) {
+            window.requestAnimationFrame(() => {
+                // === ФАЗА ЧТЕНИЯ (Read) ===
+                const scrollY = window.scrollY;
+                const isScrolledDown = scrollY > 50;
+                const isHeroVisible = scrollY < winHeight;
 
-        burger.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            burger.classList.toggle('active');
-            document.body.classList.toggle('menu-open'); // Управляет блокировкой скролла и цветами
-        });
-
-        navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', closeMenu);
-        });
-
-        // 3. Оптимизированный Hero Parallax (отключен на тач-устройствах для плавности)
-        const heroImg = document.getElementById('hero-img');
-        const isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
-        
-        let isParallaxTicking = false;
-        let winHeight = window.innerHeight;
-
-        // Кешируем высоту окна при ресайзе, чтобы не запрашивать ее при каждом скролле (устраняет принудительную компоновку)
-        window.addEventListener('resize', () => {
-            winHeight = window.innerHeight;
-        }, { passive: true });
-
-        if (!isTouch && heroImg) {
-            window.addEventListener('scroll', () => {
-                if (!isParallaxTicking) {
-                    window.requestAnimationFrame(() => {
-                        let scrollY = window.scrollY;
-                        if (scrollY < winHeight) {
-                            heroImg.style.transform = `translateY(${scrollY * 0.4}px)`;
-                        }
-                        isParallaxTicking = false;
-                    });
-                    isParallaxTicking = true;
+                // === ФАЗА ЗАПИСИ (Write) ===
+                // Навбар
+                if (isScrolledDown) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
                 }
-            }, { passive: true });
-        }
 
-        // 4. Premium Accordion Logic with Keyboard Accessibility
-        const accItems = document.querySelectorAll('.accordion-item');
-        
-        function toggleAccordion(item) {
-            const isExpanding = !item.classList.contains('active');
-            accItems.forEach(other => {
-                other.classList.remove('active');
-                other.setAttribute('aria-expanded', 'false');
-            });
-            
-            if(isExpanding) {
-                item.classList.add('active');
-                item.setAttribute('aria-expanded', 'true');
-            }
-        }
-
-        accItems.forEach(item => {
-            item.addEventListener('click', () => toggleAccordion(item));
-            item.addEventListener('keydown', (e) => {
-                if(e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    toggleAccordion(item);
+                // Параллакс (если не тачпад и блок виден на экране)
+                if (!isTouch && heroImg && isHeroVisible) {
+                    heroImg.style.transform = `translateY(${scrollY * 0.4}px)`;
                 }
+                
+                isScrolling = false;
             });
-        });
+            isScrolling = true;
+        }
+    }, { passive: true });
 
-        // 5. Form Logic
-        const form = document.getElementById('preorder-form');
-        const successMsg = document.getElementById('success-msg');
+    // 2. ЛОГИКА МОБИЛЬНОГО МЕНЮ
+    const burger = document.getElementById('burger');
+    const navLinks = document.getElementById('nav-links');
+    
+    function closeMenu() {
+        navLinks.classList.remove('active');
+        burger.classList.remove('active');
+        document.body.classList.remove('menu-open');
+    }
+
+    burger.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        burger.classList.toggle('active');
+        document.body.classList.toggle('menu-open');
+    });
+
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', closeMenu);
+    });
+
+    // 3. АККОРДЕОН (Технологии)
+    const accItems = document.querySelectorAll('.accordion-item');
+    
+    function toggleAccordion(item) {
+        const isExpanding = !item.classList.contains('active');
+        accItems.forEach(other => {
+            other.classList.remove('active');
+            other.setAttribute('aria-expanded', 'false');
+        });
+        
+        if(isExpanding) {
+            item.classList.add('active');
+            item.setAttribute('aria-expanded', 'true');
+        }
+    }
+
+    accItems.forEach(item => {
+        item.addEventListener('click', () => toggleAccordion(item));
+        item.addEventListener('keydown', (e) => {
+            if(e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggleAccordion(item);
+            }
+        });
+    });
+
+    // 4. ЛОГИКА ФОРМЫ
+    const form = document.getElementById('preorder-form');
+    const successMsg = document.getElementById('success-msg');
+    
+    if (form) {
         const submitBtn = form.querySelector('.submit-btn');
-
         form.addEventListener('submit', (e) => {
             e.preventDefault();
             submitBtn.innerText = 'Отправка...';
@@ -819,29 +815,30 @@
                 setTimeout(() => { successMsg.classList.add('active'); }, 300);
             }, 1200);
         });
+    }
 
-        // 6. Fade-up Animations
-        const observerOptions = { root: null, rootMargin: '0px', threshold: 0.15 };
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.fade-up').forEach(el => { observer.observe(el); });
-
-        // 7. Language Switch Logic
-        const langBtns = document.querySelectorAll('.lang-switch span');
-        langBtns.forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                if(e.target.innerText === '/') return;
-                langBtns.forEach(b => b.classList.remove('active'));
-                e.target.classList.add('active');
-            });
+    // 5. АНИМАЦИИ ПРИ СКРОЛЛЕ (Fade-up)
+    const observerOptions = { root: null, rootMargin: '0px', threshold: 0.15 };
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
         });
-    </script>
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-up').forEach(el => { observer.observe(el); });
+
+    // 6. ПЕРЕКЛЮЧАТЕЛЬ ЯЗЫКОВ
+    const langBtns = document.querySelectorAll('.lang-switch span');
+    langBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            if(e.target.innerText === '/') return;
+            langBtns.forEach(b => b.classList.remove('active'));
+            e.target.classList.add('active');
+        });
+    });
+</script>
 </body>
 </html>
