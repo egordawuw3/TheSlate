@@ -175,7 +175,6 @@
         .hero-img {
             position: absolute; top: 0; left: 0; width: 100%; height: 120%;
             object-fit: cover; z-index: -2;
-            background: url('assets/hero.webp') center/cover no-repeat;
             will-change: transform;
         }
 
@@ -461,7 +460,7 @@
 
     <!-- HERO -->
     <section class="hero">
-        <div class="hero-img" id="hero-img"></div>
+        <img src="assets/hero.webp" alt="Архитектурные бассейны THE SLATE" class="hero-img" id="hero-img" fetchpriority="high" decoding="sync">
         <div class="hero-content fade-up">
             <h1>Water<br>Architecture.</h1>
             <p style="margin-top: 24px; font-size: clamp(1rem, 2vw, 1.2rem); max-width: 530px; opacity: 0.9; line-height: 1.5;">
@@ -710,7 +709,7 @@
 
 <!-- Scripts -->
 <script>
-    // 1. ОПТИМИЗИРОВАННЫЙ ОБРАБОТЧИК СКРОЛЛА (Устраняет "Принудительную компоновку")
+// 1. ИДЕАЛЬНЫЙ ОБРАБОТЧИК СКРОЛЛА (0 мс Layout Thrashing)
     const navbar = document.getElementById('navbar');
     const heroImg = document.getElementById('hero-img');
     const isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
@@ -718,30 +717,24 @@
     let winHeight = window.innerHeight;
     let isScrolling = false;
 
-    // Кешируем высоту окна только при ресайзе (экономим ресурсы)
     window.addEventListener('resize', () => { 
         winHeight = window.innerHeight; 
     }, { passive: true });
 
-    // Единый цикл для навбара и параллакса
     window.addEventListener('scroll', () => {
+        // ФАЗА ЧТЕНИЯ: Берем координаты ДО вызова анимации (это убивает баг Google)
+        const scrollY = window.scrollY; 
+        
         if (!isScrolling) {
             window.requestAnimationFrame(() => {
-                // === ФАЗА ЧТЕНИЯ (Read) ===
-                const scrollY = window.scrollY;
-                const isScrolledDown = scrollY > 50;
-                const isHeroVisible = scrollY < winHeight;
-
-                // === ФАЗА ЗАПИСИ (Write) ===
-                // Навбар
-                if (isScrolledDown) {
+                // ФАЗА ЗАПИСИ: Только применяем стили
+                if (scrollY > 50) {
                     navbar.classList.add('scrolled');
                 } else {
                     navbar.classList.remove('scrolled');
                 }
 
-                // Параллакс (если не тачпад и блок виден на экране)
-                if (!isTouch && heroImg && isHeroVisible) {
+                if (!isTouch && heroImg && (scrollY < winHeight)) {
                     heroImg.style.transform = `translateY(${scrollY * 0.4}px)`;
                 }
                 
