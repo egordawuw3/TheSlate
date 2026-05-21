@@ -12,7 +12,7 @@
     <link rel="canonical" href="https://vasy-site-url.com/">
     
     <!-- ИСПРАВЛЕНО: Предзагрузка главного изображения для скорости (LCP) -->
-    <link rel="preload" as="image" href="assets/hero.webp">
+    <link rel="preload" as="image" href="assets/hero.webp" fetchpriority="high">
 
     <!-- Open Graph (VK, Telegram, Facebook) -->
     <meta property="og:type" content="website">
@@ -709,18 +709,27 @@
     </footer>
 
     <!-- Scripts -->
+<!-- Scripts -->
     <script>
-        // Navbar scroll effect
+        // 1. Оптимизированный Navbar scroll effect
         const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
+        let isNavTicking = false;
 
-        // Mobile Menu Toggle & Scroll Lock Logic (Fixed for mobile bug)
+        window.addEventListener('scroll', () => {
+            if (!isNavTicking) {
+                window.requestAnimationFrame(() => {
+                    if (window.scrollY > 50) {
+                        navbar.classList.add('scrolled');
+                    } else {
+                        navbar.classList.remove('scrolled');
+                    }
+                    isNavTicking = false;
+                });
+                isNavTicking = true;
+            }
+        }, { passive: true });
+
+        // 2. Mobile Menu Toggle & Scroll Lock Logic
         const burger = document.getElementById('burger');
         const navLinks = document.getElementById('nav-links');
         
@@ -733,26 +742,41 @@
         burger.addEventListener('click', () => {
             navLinks.classList.toggle('active');
             burger.classList.toggle('active');
-            document.body.classList.toggle('menu-open'); // Управляет блокировкой скролла и цветами (см. CSS)
+            document.body.classList.toggle('menu-open'); // Управляет блокировкой скролла и цветами
         });
 
         navLinks.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', closeMenu);
         });
 
-        // Hero Parallax (отключен на тач-устройствах для плавности)
+        // 3. Оптимизированный Hero Parallax (отключен на тач-устройствах для плавности)
         const heroImg = document.getElementById('hero-img');
         const isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
-        if(!isTouch) {
+        
+        let isParallaxTicking = false;
+        let winHeight = window.innerHeight;
+
+        // Кешируем высоту окна при ресайзе, чтобы не запрашивать ее при каждом скролле (устраняет принудительную компоновку)
+        window.addEventListener('resize', () => {
+            winHeight = window.innerHeight;
+        }, { passive: true });
+
+        if (!isTouch && heroImg) {
             window.addEventListener('scroll', () => {
-                let scrollY = window.scrollY;
-                if(scrollY < window.innerHeight) {
-                    heroImg.style.transform = `translateY(${scrollY * 0.4}px)`;
+                if (!isParallaxTicking) {
+                    window.requestAnimationFrame(() => {
+                        let scrollY = window.scrollY;
+                        if (scrollY < winHeight) {
+                            heroImg.style.transform = `translateY(${scrollY * 0.4}px)`;
+                        }
+                        isParallaxTicking = false;
+                    });
+                    isParallaxTicking = true;
                 }
-            });
+            }, { passive: true });
         }
 
-        // Premium Accordion Logic with Keyboard Accessibility
+        // 4. Premium Accordion Logic with Keyboard Accessibility
         const accItems = document.querySelectorAll('.accordion-item');
         
         function toggleAccordion(item) {
@@ -778,7 +802,7 @@
             });
         });
 
-        // Form Logic
+        // 5. Form Logic
         const form = document.getElementById('preorder-form');
         const successMsg = document.getElementById('success-msg');
         const submitBtn = form.querySelector('.submit-btn');
@@ -796,7 +820,7 @@
             }, 1200);
         });
 
-        // Fade-up Animations
+        // 6. Fade-up Animations
         const observerOptions = { root: null, rootMargin: '0px', threshold: 0.15 };
         const observer = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
@@ -809,7 +833,7 @@
 
         document.querySelectorAll('.fade-up').forEach(el => { observer.observe(el); });
 
-        // Language Switch Logic
+        // 7. Language Switch Logic
         const langBtns = document.querySelectorAll('.lang-switch span');
         langBtns.forEach(btn => {
             btn.addEventListener('click', (e) => {
