@@ -11,7 +11,6 @@
     <meta name="author" content="the slate">
     <link rel="canonical" href="https://egordawuw3.github.io/TheSlate/">
     
-    <!-- ИСПРАВЛЕНО: Предзагрузка главного изображения для скорости (LCP) -->
     <link rel="preload" as="image" href="assets/hero.webp" fetchpriority="high">
 
     <!-- Open Graph (VK, Telegram, Facebook) -->
@@ -19,7 +18,6 @@
     <meta property="og:url" content="https://egordawuw3.github.io/TheSlate/">
     <meta property="og:title" content="the slate | Архитектурные каркасные бассейны">
     <meta property="og:description" content="Эстетика стационарного водоема и безупречная интеграция в ваш экстерьер за 1 день.">
-    <!-- ИСПРАВЛЕНО: OG Image -->
     <meta property="og:image" content="https://egordawuw3.github.io/TheSlate/assets/hero.webp">
     <meta property="og:site_name" content="the slate">
     <meta property="og:locale" content="ru_RU">
@@ -28,7 +26,6 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="the slate | Каркасные системы">
     <meta name="twitter:description" content="Премиальные каркасные системы нового поколения за 1 день.">
-    <!-- ИСПРАВЛЕНО: Twitter Image -->
     <meta name="twitter:image" content="https://egordawuw3.github.io/TheSlate/assets/hero.webp">
 
     <meta name="theme-color" content="#121214">
@@ -42,7 +39,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
     </noscript>
 
-    <!-- Schema.org микроразметка (JSON-LD) для бизнеса и продуктов -->
+    <!-- Schema.org микроразметка -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -50,13 +47,12 @@
       "name": "the slate",
       "image": "https://egordawuw3.github.io/TheSlate/assets/hero.webp",
       "description": "Проектирование и монтаж премиальных архитектурных каркасных бассейнов.",
-      "url": "https://vasy-site-url.com",
+      "url": "https://egordawuw3.github.io/TheSlate/",
       "priceRange": "$$$",
       "areaServed": "RU",
-      "telephone": "+70000000000"
+      "telephone": "+79951127590"
     }
     </script>
-    <!-- ======================= -->
 
     <style>
         /* --- CORE VARIABLES --- */
@@ -82,7 +78,6 @@
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
         }
         
-        /* Блокировка скролла при открытом меню */
         body.menu-open { overflow: hidden; touch-action: none; }
 
         /* --- TYPOGRAPHY & LAYOUT --- */
@@ -104,7 +99,6 @@
             border-radius: 100px; color: #fff; transition: background 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
         }
 
-        /* Состояние при скролле */
         nav.scrolled {
             background: rgba(255, 255, 255, 0.95); border: 1px solid rgba(0, 0, 0, 0.05);
             color: var(--bg-dark); box-shadow: 0 10px 30px rgba(0,0,0,0.05);
@@ -115,13 +109,9 @@
         nav.scrolled .burger span { background-color: var(--bg-dark); }
         nav.scrolled .nav-btn { background: var(--bg-dark); color: #fff; }
 
-        /* ИСПРАВЛЕНИЕ: Жесткое переопределение стилей при открытом мобильном меню */
         body.menu-open nav { 
-            background: transparent !important; 
-            backdrop-filter: none !important; 
-            -webkit-backdrop-filter: none !important; 
-            border-color: transparent !important; 
-            box-shadow: none !important; 
+            background: transparent !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; 
+            border-color: transparent !important; box-shadow: none !important; 
         }
         body.menu-open nav .logo { color: #fff !important; }
         body.menu-open nav .burger span { background-color: #fff !important; }
@@ -129,7 +119,6 @@
         body.menu-open nav .lang-switch span { color: #fff !important; background: transparent !important; }
         body.menu-open nav .lang-switch span.active { color: var(--turquoise) !important; }
         
-        /* УБРАНО text-transform: uppercase; чтобы логотип был маленькими буквами */
         .logo { font-size: 20px; font-weight: 700; letter-spacing: -1px; position: relative; z-index: 1001; transition: color 0.3s;}
         
         .nav-links { display: flex; gap: 32px; align-items: center; }
@@ -161,8 +150,6 @@
         .burger span { width: 100%; height: 2px; background-color: #fff; transition: all 0.3s var(--ease-out); position: absolute; left: 0; }
         .burger span:nth-child(1) { top: 8px; }
         .burger span:nth-child(2) { bottom: 8px; }
-        
-        /* Анимация крестика */
         .burger.active span:nth-child(1) { top: 11px; transform: rotate(45deg); }
         .burger.active span:nth-child(2) { bottom: 11px; transform: rotate(-45deg); }
 
@@ -172,17 +159,14 @@
             position: relative; overflow: hidden; padding: 0 5vw;
         }
         
-        /* ИСПРАВЛЕНО: Background URL обновлен на assets/hero.webp */
         .hero-img {
             position: absolute; top: 0; left: 0; width: 100%; height: 120%;
-            object-fit: cover; z-index: -2;
-            will-change: transform;
+            object-fit: cover; z-index: -2; will-change: transform;
         }
 
         .hero::before {
             content: ''; position: absolute; inset: 0;
-            background: linear-gradient(to right, rgba(18, 18, 20, 0.85) 0%, rgba(18, 18, 20, 0.3) 100%);
-            z-index: -1;
+            background: linear-gradient(to right, rgba(18, 18, 20, 0.85) 0%, rgba(18, 18, 20, 0.3) 100%); z-index: -1;
         }
 
         .hero-content { color: #fff; margin-top: -50px; position: relative; z-index: 2; max-width: 1400px; margin-inline: auto; width: 100%; }
@@ -191,17 +175,14 @@
         .btn {
             padding: 18px 40px; border-radius: 100px; font-size: 14px; font-weight: 500;
             text-decoration: none; transition: background 0.3s ease, border-color 0.3s ease, transform 0.2s ease, color 0.3s; 
-            text-transform: uppercase; letter-spacing: 1px;
-            display: inline-flex; justify-content: center; align-items: center; cursor: pointer; gap: 10px;
+            text-transform: uppercase; letter-spacing: 1px; display: inline-flex; justify-content: center; align-items: center; cursor: pointer; gap: 10px;
         }
         .btn:active { transform: scale(0.97); }
-        
         .btn svg { width: 18px; height: 18px; fill: currentColor; transition: transform 0.3s ease; }
         .btn:hover svg { transform: translateX(6px); }
 
         .btn-primary { background: var(--turquoise); color: #fff; border: 1px solid var(--turquoise); }
         .btn-primary:hover { background: #006a73; border-color: #006a73; }
-        
         .btn-outline { background: rgba(255,255,255,0.05); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); color: #fff; border: 1px solid rgba(255,255,255,0.3); }
         .btn-outline:hover { background: rgba(255,255,255,1); color: var(--bg-dark); border-color: #fff; }
 
@@ -229,8 +210,7 @@
         .features-wrapper h2 { color: #fff; margin-bottom: 80px; }
         
         .accordion-item {
-            border-bottom: 1px solid var(--line-color);
-            color: #fff; padding: 40px 0; cursor: pointer; transition: opacity 0.3s; outline: none;
+            border-bottom: 1px solid var(--line-color); color: #fff; padding: 40px 0; cursor: pointer; transition: opacity 0.3s; outline: none;
         }
         .accordion-item:focus-visible { background: rgba(255,255,255,0.03); }
         .accordion-item:first-of-type { border-top: 1px solid var(--line-color); }
@@ -243,8 +223,7 @@
         .acc-icon {
             width: 48px; height: 48px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.2);
             display: flex; justify-content: center; align-items: center; font-size: 1.2rem; font-weight: 300;
-            transition: transform 0.4s var(--ease-out), border-color 0.3s ease, background 0.3s ease;
-            color: #fff; justify-self: end;
+            transition: transform 0.4s var(--ease-out), border-color 0.3s ease, background 0.3s ease; color: #fff; justify-self: end;
         }
         
         .accordion-item:hover .feat-title { color: var(--turquoise); }
@@ -317,7 +296,7 @@
             width: 100%; font-size: 18px; padding: 24px 0 8px;
             border: none; border-bottom: 1px solid rgba(0,0,0,0.2);
             background: transparent; outline: none; font-family: inherit; transition: border-color 0.3s;
-            border-radius: 0; /* Fix for iOS */
+            border-radius: 0;
         }
         .input-group label {
             position: absolute; top: 20px; left: 0; font-size: 18px; color: var(--text-gray);
@@ -346,12 +325,47 @@
         .form-success-msg.active { opacity: 1; visibility: visible; }
         .success-icon { width: 56px; height: 56px; fill: var(--turquoise); margin-bottom: 20px; }
 
+        /* --- APPLE STYLE CHECKBOX --- */
+        .custom-checkbox-wrapper {
+            display: flex; align-items: flex-start; gap: 12px; cursor: pointer;
+            margin-top: 10px; margin-bottom: 10px; position: relative; text-align: left;
+            -webkit-tap-highlight-color: transparent; 
+        }
+        .custom-checkbox-wrapper input {
+            position: absolute; opacity: 0; cursor: pointer; height: 0; width: 0;
+        }
+        .checkmark {
+            width: 20px; height: 20px; border-radius: 6px; border: 1.5px solid rgba(0,0,0,0.25);
+            background: transparent; display: flex; justify-content: center; align-items: center;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); flex-shrink: 0; margin-top: 1px;
+        }
+        .checkmark::after {
+            content: ''; width: 4px; height: 9px; border: solid #fff; border-width: 0 2px 2px 0;
+            transform: rotate(45deg) scale(0); transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            margin-bottom: 2px;
+        }
+        .custom-checkbox-wrapper input:checked ~ .checkmark {
+            background: var(--turquoise); border-color: var(--turquoise);
+        }
+        .custom-checkbox-wrapper input:checked ~ .checkmark::after {
+            transform: rotate(45deg) scale(1);
+        }
+        .checkbox-label {
+            font-size: 13px; color: var(--text-gray); line-height: 1.5;
+            user-select: none;
+        }
+        .checkbox-label a {
+            color: var(--bg-dark); text-decoration: none;
+            border-bottom: 1px solid rgba(0,0,0,0.2); transition: border-color 0.3s, color 0.3s;
+        }
+        .checkbox-label a:hover { border-bottom-color: var(--bg-dark); }
+
         /* --- STRUCTURED FOOTER --- */
         footer { background: var(--graphite); color: #fff; padding: 100px 5vw 40px; }
         
         .footer-grid {
             display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 60px;
-            margin-bottom: 80px; border-bottom: 1px solid var(--line-color); padding-bottom: 80px; max-width: 1400px; margin-inline: auto;
+            margin-bottom: 60px; max-width: 1400px; margin-inline: auto;
         }
 
         .footer-brand h2 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 16px; color: #fff; }
@@ -371,7 +385,49 @@
         .social-btn:active { transform: scale(0.92); }
         .social-btn svg { width: 20px; height: 20px; fill: #fff; }
 
-        .footer-bottom { display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--text-gray); max-width: 1400px; margin: 0 auto;}
+        .footer-bottom-flex {
+            display: flex; flex-direction: column; align-items: center; width: 100%;
+            padding-top: 40px; border-top: 1px solid var(--line-color); gap: 24px;
+            max-width: 1400px; margin: 0 auto;
+        }
+        .footer-legal-text {
+            font-size: 11px; color: rgba(255, 255, 255, 0.4); line-height: 1.6;
+            max-width: 800px; text-align: center;
+        }
+        .footer-bottom-links {
+            display: flex; justify-content: space-between; width: 100%;
+            color: var(--text-gray); font-size: 13px;
+        }
+        .footer-bottom-links a {
+            color: inherit; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.2); 
+            padding-bottom: 2px; transition: color 0.3s, border-color 0.3s;
+        }
+        .footer-bottom-links a:hover { color: #fff; border-color: #fff; }
+
+        /* --- APPLE STYLE COOKIE BANNER --- */
+        .cookie-banner {
+            position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(100px);
+            opacity: 0; visibility: hidden; z-index: 9999;
+            background: rgba(22, 24, 26, 0.85);
+            backdrop-filter: blur(16px) saturate(180%); -webkit-backdrop-filter: blur(16px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 16px 20px 16px 24px; border-radius: 100px;
+            display: flex; align-items: center; gap: 24px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            width: 90%; max-width: 600px;
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .cookie-banner.show { transform: translateX(-50%) translateY(0); opacity: 1; visibility: visible; }
+        .cookie-text { color: #E5E5E5; font-size: 12px; margin: 0; line-height: 1.4; font-weight: 400; text-align: left; }
+        .cookie-text a { color: #fff; text-decoration: underline; text-decoration-color: rgba(255,255,255,0.3); text-underline-offset: 3px; transition: text-decoration-color 0.3s; }
+        .cookie-text a:hover { text-decoration-color: #fff; }
+        .cookie-btn {
+            background: #fff; color: var(--graphite); border: none; padding: 10px 24px;
+            border-radius: 100px; font-size: 12px; font-weight: 600; cursor: pointer;
+            white-space: nowrap; transition: transform 0.2s, background 0.3s;
+        }
+        .cookie-btn:hover { background: #f0f0f0; }
+        .cookie-btn:active { transform: scale(0.95); }
 
         /* --- ANIMATIONS --- */
         .fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1); }
@@ -386,8 +442,6 @@
             .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
             .accordion-header { grid-template-columns: 50px 1fr 50px; }
             .accordion-content { padding-left: 50px; }
-            
-            /* Улучшение сетки галереи для планшетов */
             .gal-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 250px; }
             .gal-item:nth-child(n) { grid-column: span 1; grid-row: span 1; }
             .gal-item:nth-child(1) { grid-column: span 2; grid-row: span 2; }
@@ -395,14 +449,11 @@
         }
 
         @media (max-width: 768px) {
-            /* Navbar & Mobile Menu Override */
-            .nav-btn { display: none; } /* Скрываем кнопку в меню на мобилке для чистоты */
+            .nav-btn { display: none; }
             .burger { display: flex; }
-            
             nav { padding: 16px 20px; top: 16px; width: calc(100% - 32px); }
-            
             .nav-links {
-                position: fixed; top: 0; left: 0; width: 100%; height: 100dvh; /* 100dvh для iOS */
+                position: fixed; top: 0; left: 0; width: 100%; height: 100dvh;
                 background: rgba(18, 18, 20, 0.98); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
                 flex-direction: column; justify-content: center; align-items: center; gap: 40px;
                 opacity: 0; pointer-events: none; transition: opacity 0.4s ease, visibility 0.4s; visibility: hidden; z-index: -1;
@@ -410,30 +461,24 @@
             .nav-links.active { opacity: 1; pointer-events: all; visibility: visible; }
             .nav-links.active a { color: #fff !important; font-size: 24px; }
             .nav-links.active .lang-switch { display: flex; position: relative; height: auto; opacity: 1; background: transparent; }
-            
             .scroll-indicator { display: none; } 
-
-            /* Галерея для телефонов */
             .gal-grid { display: grid; grid-template-columns: 1fr; grid-auto-rows: 280px; gap: 16px; }
             .gal-item:nth-child(n) { grid-column: span 1; grid-row: span 1; }
-            
             section { padding: 80px 5vw; }
             .features-wrapper, .catalog-wrapper { padding: 80px 5vw; }
-
             .accordion-header { grid-template-columns: 40px 1fr 40px; padding: 10px 0;}
             .accordion-content { padding-left: 0; }
             .acc-icon { width: 36px; height: 36px; font-size: 1rem; }
-
             .cards-container { grid-template-columns: 1fr; }
             .card-img { height: 280px; }
             .card-info { padding: 30px; }
-            
-            .footer-grid { grid-template-columns: 1fr; gap: 40px; border-bottom: none; padding-bottom: 40px; }
-            .footer-bottom { flex-direction: column; gap: 20px; text-align: center; }
-            
-            /* Фикс размера кнопок для удобства пальца */
+            .footer-grid { grid-template-columns: 1fr; gap: 40px; border-bottom: none; padding-bottom: 20px; }
+            .footer-bottom-links { flex-direction: column; gap: 16px; text-align: center; }
             .btn { width: 100%; padding: 20px 30px; }
             .hero-actions { flex-direction: column; gap: 15px; width: 100%; }
+            .cookie-banner { flex-direction: column; border-radius: 20px; text-align: center; padding: 24px; gap: 16px; }
+            .cookie-text { text-align: center; }
+            .cookie-btn { width: 100%; padding: 14px; font-size: 14px; }
         }
     </style>
 </head>
@@ -478,7 +523,7 @@
         </div>
         
         <div class="scroll-indicator tech-font fade-up" style="transition-delay: 0.5s;">
-            Scroll <div class="scroll-line"></div>
+            Вниз <div class="scroll-line"></div>
         </div>
     </section>
 
@@ -490,8 +535,8 @@
             </div>
             <div class="phil-text fade-up" style="transition-delay: 0.1s;">
                 <div style="margin-bottom: 24px;" class="tech-font">
-                    <span class="color-dot" style="background: var(--graphite);"></span> STEEL FRAME &nbsp;&nbsp;&nbsp;
-                    <span class="color-dot" style="background: var(--turquoise);"></span> PREMIUM LINER
+                    <span class="color-dot" style="background: var(--graphite);"></span> Стальной каркас &nbsp;&nbsp;&nbsp;
+                    <span class="color-dot" style="background: var(--turquoise);"></span> Премиальный лайнер
                 </div>
                 <h2>Безупречная форма.<br>Быстрая установка.</h2>
                 <p style="font-size: clamp(1rem, 2vw, 1.125rem); color: var(--text-gray); line-height: 1.6;">
@@ -632,7 +677,7 @@
                 <!-- Модель 4 -->
                 <div class="model-card fade-up" style="transition-delay: 0.1s;">
                     <div class="card-img">
-                        <span class="badge-new tech-font">New</span>
+                        <span class="badge-new tech-font">Новинка</span>
                         <img src="assets/EG2XL.webp" alt="Новинка: Бассейн the slate модель EG2XL" loading="lazy">
                     </div>
                     <div class="card-info">
@@ -666,6 +711,17 @@
                     <input type="tel" id="phone" name="phone" required autocomplete="tel">
                     <label for="phone">Номер телефона</label>
                 </div>
+
+                <!-- APPLE-STYLE ЧЕКБОКС -->
+                <label class="custom-checkbox-wrapper">
+                    <input type="checkbox" id="privacy-agree" required>
+                    <span class="checkmark"></span>
+                    <span class="checkbox-label">
+                        Я согласен на обработку персональных данных в соответствии с <a href="privacy.html" target="_blank">Политикой конфиденциальности</a>
+                    </span>
+                </label>
+                <!-- КОНЕЦ ЧЕКБОКСА -->
+
                 <button type="submit" class="submit-btn tech-font">Получить персональное предложение</button>
             </form>
             
@@ -697,23 +753,47 @@
 
             <div class="footer-col tech-font">
                 <h3>Социальные сети</h3>
-                <div class="social-icons">
-                    <a href="#" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Связаться в Telegram"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg></a>
-                    <a href="#" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Перейти в Instagram"><svg viewBox="0 0 24 24"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/></svg></a>
-                    <a href="#" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Написать в WhatsApp"><svg viewBox="0 0 24 24"><path d="M16.75 13.96c.25.13 1.5.73 1.73.86.23.13.39.2.45.31.06.11.06.63-.16 1.24-.22.61-1.28 1.18-1.76 1.23-.48.05-1.07.13-3.41-.83-2.82-1.16-4.63-4.04-4.77-4.23-.14-.19-1.14-1.52-1.14-2.9 0-1.38.71-2.06.96-2.34.25-.28.55-.35.73-.35.18 0 .36 0 .52.01.17.01.39-.06.6.43.23.55.77 1.9.84 2.04.07.14.12.3.02.5-.1.2-.15.33-.3.51-.15.18-.32.4-.45.54-.14.15-.29.31-.13.59.16.28.71 1.18 1.53 1.91.99.88 1.86 1.15 2.14 1.29.28.14.45.12.62-.07.17-.19.73-.85.92-1.14.19-.29.38-.24.63-.15l-.01-.01zM12 2C6.48 2 2 6.48 2 12c0 1.95.56 3.76 1.51 5.3L2 22l4.87-1.42A9.914 9.914 0 0 0 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-1.66 0-3.21-.42-4.57-1.15L4.1 19.8l.98-3.24A7.95 7.95 0 0 1 4 12c0-4.41 3.59-8 8-8s8 3.59 8 8-3.59 8-8 8z"/></svg></a>
-                </div>
-            </div>
+<div class="social-icons">
+                    <!-- Telegram (Чистый самолетик) -->
+                    <a href="https://t.me/ipoolgoo" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Связаться в Telegram">
+                        <svg viewBox="0 0 24 24" style="width: 22px; height: 22px; margin-right: 2px;"><path d="M20.665 3.717l-17.73 6.837c-1.21.486-1.203 1.161-.222 1.462l4.552 1.42 10.532-6.645c.498-.303.953-.14.579.192l-8.533 7.701h-.002l-1.55 4.887c.224 0 .34-.105.474-.233l2.253-2.19 4.686 3.465c.863.475 1.483.23 1.696-.827l3.072-14.475c.321-1.306-.484-1.898-1.782-1.396z" fill="#fff"/></svg>
+                    </a>
+                    
+                    <!-- VKontakte (Чистая монограмма) -->
+                    <a href="https://vk.com/ipoolgoo" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Перейти во ВКонтакте">
+                        <svg viewBox="0 0 24 24" style="width: 22px; height: 22px; margin-top: 1px;"><path d="M13.162 18.994c.609 0 .858-.406.851-.915-.031-1.917.714-2.949 2.059-1.604 1.488 1.488 1.796 2.519 3.603 2.519h3.2c.808 0 1.126-.26 1.126-.668 0-.863-1.421-2.386-2.625-3.504-1.686-1.565-1.765-1.602-.313-3.486 1.801-2.339 2.583-3.466 2.583-4.327 0-.71-.211-1.076-1.126-1.076h-3.287c-.815 0-1.092.415-1.156.886-.182 1.343-1.118 3.559-2.358 5.304-.908 1.275-1.53 1.552-2.153 1.552-.311 0-.581-.227-.581-1.587v-5.222c0-.987-.06-1.393-.846-1.604-1.099-.297-2.352-.346-3.463-.346-.948 0-1.534.053-1.534.526 0 .444.64.607.72 2.051.144 2.656-.233 2.871-.845 2.871-.845 0-2.327-1.15-3.376-3.23-.746-1.482-1.282-3.132-1.282-3.132-.23-.694-.593-.938-1.391-.938H.585C.134 5.932 0 6.136 0 6.54c0 .863 1.892 4.385 4.316 8.047 2.664 4.025 5.952 4.407 8.846 4.407z" fill="#fff"/></svg>
+                    </a>
+
+                    <!-- MAX -->
+                    <a href="https://max.ru/u/f9LHodD0cOLZZQsyImLOqGLyWxkTsQnen9WK6NkbB12yh-Y8y3pB8htrc5E" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Перейти в MAX" style="font-weight: 700; font-size: 13px; letter-spacing: 1px; color: #fff; text-decoration: none;">
+                        MAX
+                    </a>
+                </div>            </div>
         </div>
 
-        <div class="footer-bottom tech-font fade-up">
-            <div class="copyright">© 2026 the slate™.</div>
-            <div class="policy"><a href="#" style="color: inherit; text-decoration: none;">Политика конфиденциальности</a></div>
+        <div class="footer-bottom-flex tech-font fade-up">
+            <div class="footer-legal-text">
+                ИП Корзников Валерий Владимирович | ИНН: 432601231711 | ОГРНИП: 324774600868543<br>
+                Обращаем ваше внимание на то, что данный интернет-сайт носит исключительно информационный характер и ни при каких условиях не является публичной офертой, определяемой положениями Статьи 437 (2) Гражданского кодекса РФ.
+            </div>
+            <div class="footer-bottom-links">
+                <div class="copyright">© 2026 the slate™. Все права защищены.</div>
+                <div class="policy"><a href="privacy.html" target="_blank">Политика конфиденциальности</a></div>
+            </div>
         </div>
     </footer>
 
+    <!-- APPLE STYLE COOKIE BANNER -->
+    <div id="cookie-banner" class="cookie-banner">
+        <p class="cookie-text">
+            Мы используем файлы cookie для улучшения работы сайта. Продолжая использование, вы соглашаетесь с <a href="privacy.html" target="_blank">Политикой конфиденциальности</a>.
+        </p>
+        <button id="cookie-btn" class="cookie-btn">Понятно</button>
+    </div>
+
 <!-- Scripts -->
 <script>
-// 1. ИДЕАЛЬНЫЙ ОБРАБОТЧИК СКРОЛЛА (0 мс Layout Thrashing)
+// 1. ИДЕАЛЬНЫЙ ОБРАБОТЧИК СКРОЛЛА
     const navbar = document.getElementById('navbar');
     const heroImg = document.getElementById('hero-img');
     const isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
@@ -726,12 +806,10 @@
     }, { passive: true });
 
     window.addEventListener('scroll', () => {
-        // ФАЗА ЧТЕНИЯ: Берем координаты ДО вызова анимации (это убивает баг Google)
         const scrollY = window.scrollY; 
         
         if (!isScrolling) {
             window.requestAnimationFrame(() => {
-                // ФАЗА ЗАПИСИ: Только применяем стили
                 if (scrollY > 50) {
                     navbar.classList.add('scrolled');
                 } else {
@@ -814,7 +892,7 @@
         });
     }
 
-    // 5. АНИМАЦИИ ПРИ СКРОЛЛЕ (Fade-up)
+    // 5. АНИМАЦИИ ПРИ СКРОЛЛЕ
     const observerOptions = { root: null, rootMargin: '0px', threshold: 0.15 };
     const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
@@ -834,6 +912,20 @@
             if(e.target.innerText === '/') return;
             langBtns.forEach(b => b.classList.remove('active'));
             e.target.classList.add('active');
+        });
+    });
+
+    // 7. ЛОГИКА COOKIES (С красивой задержкой)
+    document.addEventListener("DOMContentLoaded", () => {
+        if (!localStorage.getItem('cookieAccepted')) {
+            setTimeout(() => {
+                document.getElementById('cookie-banner').classList.add('show');
+            }, 1000); // Появится через 1 секунду после загрузки
+        }
+        
+        document.getElementById('cookie-btn').addEventListener('click', function() {
+            localStorage.setItem('cookieAccepted', 'true');
+            document.getElementById('cookie-banner').classList.remove('show');
         });
     });
 </script>
