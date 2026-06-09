@@ -5,28 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     
     <!-- === МАКИМАЛЬНОЕ SEO === -->
-    <title>the slate | Архитектурные каркасные бассейны премиум-класса</title>
-    <meta name="description" content="Премиальные каркасные системы нового поколения. Эстетика стационарного бассейна с бережной интеграцией в ландшафт за 1 день. Закажите расчет стоимости.">
-    <meta name="keywords" content="каркасные бассейны, премиальные бассейны, архитектурные бассейны, бассейны для дачи, the slate, ландшафтный дизайн бассейнов">
+    <title>the slate | Надувные бассейны нового поколения</title>
+    <meta name="description" content="Надувные бассейны нового поколения. Эстетика бассейна с бережной интеграцией за считаные минуты. Закажите расчет стоимости.">
+    <meta name="keywords" content="надувные бассейны, премиальные бассейны, бассейны нового поколения, бассейны для дачи, the slate, ландшафтный дизайн бассейнов, каркасные бассейны, бескаркасные бассейны, бассейны на террасу, премиум бассейны">
     <meta name="author" content="the slate">
-    <link rel="canonical" href="https://egordawuw3.github.io/TheSlate/">
+    <link rel="canonical" href="https://theslatepool.com/">
     
     <link rel="preload" as="image" href="assets/hero.webp" fetchpriority="high">
 
+    <!-- === FAVICON === -->
+    <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
+    <!-- Если файла нет, закомментируйте строку ниже -->
+    <!-- <link rel="manifest" href="site.webmanifest"> -->
+
     <!-- Open Graph (VK, Telegram, Facebook) -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://egordawuw3.github.io/TheSlate/">
-    <meta property="og:title" content="the slate | Архитектурные каркасные бассейны">
-    <meta property="og:description" content="Эстетика стационарного водоема и безупречная интеграция в ваш экстерьер за 1 день.">
-    <meta property="og:image" content="https://egordawuw3.github.io/TheSlate/assets/hero.webp">
+    <meta property="og:url" content="https://theslatepool.com/">
+    <meta property="og:title" content="the slate | Надувные бассейны нового поколения">
+    <meta property="og:description" content="Эстетика бассейна с бережной интеграцией за считаные минуты.">
+    <meta property="og:image" content="https://theslatepool.com/assets/hero.webp">
     <meta property="og:site_name" content="the slate">
     <meta property="og:locale" content="ru_RU">
 
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="the slate | Каркасные системы">
-    <meta name="twitter:description" content="Премиальные каркасные системы нового поколения за 1 день.">
-    <meta name="twitter:image" content="https://egordawuw3.github.io/TheSlate/assets/hero.webp">
+    <meta name="twitter:title" content="the slate | Надувные бассейны">
+    <meta name="twitter:description" content="Премиальные надувные бассейны нового поколения за считаные минуты.">
+    <meta name="twitter:image" content="https://theslatepool.com/assets/hero.webp">
 
     <meta name="theme-color" content="#121214">
     
@@ -39,20 +47,36 @@
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
     </noscript>
 
-    <!-- Schema.org микроразметка -->
-    <script type="application/ld+json">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
     {
-      "@context": "https://schema.org",
       "@type": "LocalBusiness",
       "name": "the slate",
-      "image": "https://egordawuw3.github.io/TheSlate/assets/hero.webp",
-      "description": "Проектирование и монтаж премиальных архитектурных каркасных бассейнов.",
-      "url": "https://egordawuw3.github.io/TheSlate/",
-      "priceRange": "$$$",
-      "areaServed": "RU",
+      "image": "https://theslatepool.com/assets/hero.webp",
+      "description": "Премиальные надувные бассейны нового поколения. Установка за считаные минуты.",
+      "url": "https://theslatepool.com/",
+      "priceRange": "от 100 000 RUB",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "RU"
+      },
       "telephone": "+79951127590"
+    },
+    {
+      "@type": "Product",
+      "name": "Бассейн the slate EGXL",
+      "image": "https://theslatepool.com/assets/EGXL.webp",
+      "description": "Бассейн 4.0 × 1.5 м, объем 16 м³.",
+      "brand": {
+        "@type": "Brand",
+        "name": "the slate"
+      }
     }
-    </script>
+  ]
+}
+</script>
 
     <style>
         /* --- CORE VARIABLES --- */
@@ -153,7 +177,7 @@
         }
         
         .hero-img {
-            position: absolute; top: 0; left: 0; width: 100%; height: 120%;
+            position: absolute; top: -15%; left: 0; width: 100%; height: 130%;
             object-fit: cover; z-index: -2; will-change: transform;
         }
 
@@ -369,14 +393,21 @@
         .footer-col-links a { color: #fff; text-decoration: none; font-size: 15px; opacity: 0.7; transition: opacity 0.3s; width: fit-content; }
         .footer-col-links a:hover { opacity: 1; }
 
-        .social-icons { display: flex; gap: 16px; }
+        .social-icons { display: flex; gap: 16px; align-items: center; }
         .social-btn {
             width: 48px; height: 48px; border-radius: 50%; background: transparent;
             display: flex; justify-content: center; align-items: center; transition: background 0.3s, border-color 0.3s, transform 0.2s; border: 1px solid var(--line-color);
         }
         .social-btn:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.3); }
         .social-btn:active { transform: scale(0.92); }
-        .social-btn svg { width: 20px; height: 20px; fill: #fff; }
+        
+        /* Изменено для поддержки img и svg локально */
+        .social-btn svg, .social-btn img { 
+            width: 22px; 
+            height: 22px; 
+            object-fit: contain; 
+            fill: #fff; 
+        }
 
         .footer-bottom-flex {
             display: flex; flex-direction: column; align-items: center; width: 100%;
@@ -499,7 +530,7 @@
         <div class="hero-content fade-up">
             <h1>Новое поколение<br>бассейнов.</h1>
             <p style="margin-top: 24px; font-size: clamp(1rem, 2vw, 1.2rem); max-width: 530px; opacity: 0.9; line-height: 1.5;">
-                Новое поколение бассейнов премиум класса, идеальная геометрия, экологичные материалы. Безупречная интеграция в ваш экстерьер
+                Новое поколение каркасных бассейнов премиум класса, идеальная геометрия, экологичные материалы. Безупречная интеграция в ваш экстерьер
             </p>
             
             <div class="hero-actions tech-font">
@@ -524,8 +555,8 @@
             </div>
             <div class="phil-text fade-up" style="transition-delay: 0.1s;">
                 <div style="margin-bottom: 24px;" class="tech-font">
-                    <span class="color-dot" style="background: var(--graphite);"></span> Стальной каркас &nbsp;&nbsp;&nbsp;
-                    <span class="color-dot" style="background: var(--turquoise);"></span> Премиальный лайнер
+                    <span class="color-dot" style="background: var(--graphite);"></span> Технология капельного вязания &nbsp;&nbsp;&nbsp;
+                    <span class="color-dot" style="background: var(--turquoise);"></span> Высокая плотность ПВХ
                 </div>
                 <h2>Безупречная форма.<br>Быстрая установка.</h2>
                 <p style="font-size: clamp(1rem, 2vw, 1.125rem); color: var(--text-gray); line-height: 1.6;">
@@ -548,7 +579,7 @@
                     </div>
                     <div class="accordion-content-wrapper">
                         <div class="accordion-content">
-                            <p>Сверхпрочные материалы обеспечивают невероятную устойчивость. Выдерживает гигантские нагрузки и экстремальные перепады температур.</p>
+                            <p>Сверхпрочные материалы обеспечивают невероятную устойчивость. Выдерживает гигантские нагрузки (нагрузка на борт до 700 кг) и экстремальные перепады температур (от -30 до +80 градусов по Цельсию).</p>
                         </div>
                     </div>
                 </div>
@@ -561,7 +592,7 @@
                     </div>
                     <div class="accordion-content-wrapper">
                         <div class="accordion-content">
-                            <p>Бассейн доставляется на участок и собирается за один день. Идеальная
+                            <p>Бассейн доставляется на участок и собирается за считаные минуты. Идеальная
 интеграция без длительных бетонных работ, тяжелой строительной техники и
 гор строительного мусора на вашем ландшафте.</p>
                         </div>
@@ -576,7 +607,7 @@
                     </div>
                     <div class="accordion-content-wrapper">
                         <div class="accordion-content">
-                            <p>Инновационная конструкция позволяет легко интегрировать систему в землю, подиум или террасу. Бассейн работает по принципу прочнейшей базы, обеспечивая
+                            <p>Инновационная конструкция позволяет легко интегрировать бассейн в землю, подиум или террасу. Бассейн работает по принципу прочнейшей базы, обеспечивая
 безупречный внешний вид, прочность и практичность.</p>
                         </div>
                     </div>
@@ -692,6 +723,11 @@
         <h2 class="fade-up">Сделать шаг к идеалу</h2>
         <div class="form-wrapper fade-up">
             <form id="preorder-form">
+                <!-- Настройки FormSubmit -->
+                <input type="hidden" name="_subject" value="🔥 Новая заявка с сайта the slate!">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_template" value="table">
+                
                 <div class="input-group">
                     <input type="text" id="name" name="name" required autocomplete="name">
                     <label for="name">Ваше имя</label>
@@ -726,7 +762,7 @@
     <footer>
         <div class="footer-grid fade-up">
             <div class="footer-brand">
-                <h2 class="logo">the slate™</h2>
+                <div class="logo" style="font-size: 20px; font-weight: 700; letter-spacing: -1px; margin-bottom: 16px; color: #fff;">the slate™</div>
                 <p>Новое поколение бассейнов премиум класса, идеальная геометрия, экологичные материалы. Безупречная интеграция в ваш экстерьер</p>
             </div>
             
@@ -742,22 +778,23 @@
 
             <div class="footer-col tech-font">
                 <h3>Социальные сети</h3>
-<div class="social-icons">
-                    <!-- Telegram (Чистый самолетик) -->
+                <div class="social-icons">
+                    <!-- Telegram Локальный -->
                     <a href="https://t.me/ipoolgoo" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Связаться в Telegram">
-                        <svg viewBox="0 0 24 24" style="width: 22px; height: 22px; margin-right: 2px;"><path d="M20.665 3.717l-17.73 6.837c-1.21.486-1.203 1.161-.222 1.462l4.552 1.42 10.532-6.645c.498-.303.953-.14.579.192l-8.533 7.701h-.002l-1.55 4.887c.224 0 .34-.105.474-.233l2.253-2.19 4.686 3.465c.863.475 1.483.23 1.696-.827l3.072-14.475c.321-1.306-.484-1.898-1.782-1.396z" fill="#fff"/></svg>
+                        <img src="assets/icons/telegram.svg" alt="Telegram">
                     </a>
                     
-                    <!-- VKontakte (Чистая монограмма) -->
+                    <!-- VKontakte Локальный -->
                     <a href="https://vk.com/ipoolgoo" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Перейти во ВКонтакте">
-                        <svg viewBox="0 0 24 24" style="width: 22px; height: 22px; margin-top: 1px;"><path d="M13.162 18.994c.609 0 .858-.406.851-.915-.031-1.917.714-2.949 2.059-1.604 1.488 1.488 1.796 2.519 3.603 2.519h3.2c.808 0 1.126-.26 1.126-.668 0-.863-1.421-2.386-2.625-3.504-1.686-1.565-1.765-1.602-.313-3.486 1.801-2.339 2.583-3.466 2.583-4.327 0-.71-.211-1.076-1.126-1.076h-3.287c-.815 0-1.092.415-1.156.886-.182 1.343-1.118 3.559-2.358 5.304-.908 1.275-1.53 1.552-2.153 1.552-.311 0-.581-.227-.581-1.587v-5.222c0-.987-.06-1.393-.846-1.604-1.099-.297-2.352-.346-3.463-.346-.948 0-1.534.053-1.534.526 0 .444.64.607.72 2.051.144 2.656-.233 2.871-.845 2.871-.845 0-2.327-1.15-3.376-3.23-.746-1.482-1.282-3.132-1.282-3.132-.23-.694-.593-.938-1.391-.938H.585C.134 5.932 0 6.136 0 6.54c0 .863 1.892 4.385 4.316 8.047 2.664 4.025 5.952 4.407 8.846 4.407z" fill="#fff"/></svg>
+                        <img src="assets/icons/vk.svg" alt="ВКонтакте">
                     </a>
 
-                    <!-- MAX -->
-                    <a href="https://max.ru/u/f9LHodD0cOLZZQsyImLOqGLyWxkTsQnen9WK6NkbB12yh-Y8y3pB8htrc5E" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Перейти в MAX" style="font-weight: 700; font-size: 13px; letter-spacing: 1px; color: #fff; text-decoration: none;">
-                        MAX
+                    <!-- MAX Локальный -->
+                    <a href="https://max.ru/u/f9LHodD0cOLZZQsyImLOqGLyWxkTsQnen9WK6NkbB12yh-Y8y3pB8htrc5E" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Перейти в MAX">
+                        <img src="assets/icons/max.svg" alt="MAX">
                     </a>
-                </div>            </div>
+                </div>
+            </div>
         </div>
 
         <div class="footer-bottom-flex tech-font fade-up">
@@ -861,7 +898,7 @@
         });
     });
 
-    // 4. ЛОГИКА ФОРМЫ
+// 4. ЛОГИКА ФОРМЫ (Подключен FormSubmit через AJAX)
     const form = document.getElementById('preorder-form');
     const successMsg = document.getElementById('success-msg');
     
@@ -869,15 +906,39 @@
         const submitBtn = form.querySelector('.submit-btn');
         form.addEventListener('submit', (e) => {
             e.preventDefault();
+            
+            // Меняем состояние кнопки
+            const originalBtnText = submitBtn.innerText;
             submitBtn.innerText = 'Отправка...';
             submitBtn.style.opacity = '0.7';
             submitBtn.style.pointerEvents = 'none';
             
-            setTimeout(() => {
+            // Собираем данные
+            const formData = new FormData(form);
+
+            // Отправляем через Fetch API
+            fetch("https://formsubmit.co/ajax/egor242000gg@gmail.com", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Если успешно — запускаем анимацию
                 form.style.opacity = '0';
                 form.style.visibility = 'hidden';
                 setTimeout(() => { successMsg.classList.add('active'); }, 300);
-            }, 1200);
+            })
+            .catch(error => {
+                // Если ошибка
+                console.error(error);
+                submitBtn.innerText = 'Ошибка. Попробуйте еще раз';
+                submitBtn.style.opacity = '1';
+                submitBtn.style.pointerEvents = 'all';
+                
+                setTimeout(() => {
+                    submitBtn.innerText = originalBtnText;
+                }, 3000);
+            });
         });
     }
 
@@ -899,7 +960,7 @@
         if (!localStorage.getItem('cookieAccepted')) {
             setTimeout(() => {
                 document.getElementById('cookie-banner').classList.add('show');
-            }, 1000); // Появится через 1 секунду после загрузки
+            }, 1000);
         }
         
         document.getElementById('cookie-btn').addEventListener('click', function() {
