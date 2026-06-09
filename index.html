@@ -18,7 +18,6 @@
     <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
-    <!-- Если файла нет, закомментируйте строку ниже -->
     <!-- <link rel="manifest" href="site.webmanifest"> -->
 
     <!-- Open Graph (VK, Telegram, Facebook) -->
@@ -401,12 +400,12 @@
         .social-btn:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.3); }
         .social-btn:active { transform: scale(0.92); }
         
-        /* Изменено для поддержки img и svg локально */
+        /* ВАЖНО: filter принудительно делает любую картинку белой! */
         .social-btn svg, .social-btn img { 
             width: 22px; 
             height: 22px; 
             object-fit: contain; 
-            fill: #fff; 
+            filter: brightness(0) invert(1);
         }
 
         .footer-bottom-flex {
@@ -509,7 +508,7 @@
 
     <!-- NAVBAR -->
     <nav id="navbar">
-        <a href="#" class="logo" style="text-decoration: none; color: inherit;">the slate™</a>
+        <a href="/" class="logo" style="text-decoration: none; color: inherit;">the slate™</a>
         <div class="nav-links tech-font" id="nav-links">
             <a href="#philosophy">Философия</a>
             <a href="#features">Технологии</a>
@@ -762,7 +761,7 @@
     <footer>
         <div class="footer-grid fade-up">
             <div class="footer-brand">
-                <div class="logo" style="font-size: 20px; font-weight: 700; letter-spacing: -1px; margin-bottom: 16px; color: #fff;">the slate™</div>
+                <a href="/" class="logo" style="font-size: 20px; font-weight: 700; letter-spacing: -1px; margin-bottom: 16px; color: #fff; display: inline-block; text-decoration: none;">the slate™</a>
                 <p>Новое поколение бассейнов премиум класса, идеальная геометрия, экологичные материалы. Безупречная интеграция в ваш экстерьер</p>
             </div>
             
@@ -916,7 +915,13 @@
             // Собираем данные
             const formData = new FormData(form);
 
-            // Отправляем через Fetch API
+            // ==========================================
+            // ВНИМАНИЕ!!! 
+            // После того как вы один раз отправите тестовую форму, 
+            // зайдите на почту, подтвердите аккаунт FormSubmit 
+            // и замените свой email в строке ниже на длинный код (Random String),
+            // чтобы защитить почту от спама!
+            // ==========================================
             fetch("https://formsubmit.co/ajax/egor242000gg@gmail.com", {
                 method: "POST",
                 body: formData
