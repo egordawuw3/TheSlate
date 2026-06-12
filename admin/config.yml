@@ -1,0 +1,116 @@
+backend:
+  name: git-gateway
+  branch: main # Замените на master, если ваша ветка называется master
+
+media_folder: "assets"
+public_folder: "assets"
+
+collections:
+  - name: "pages"
+    label: "Управление сайтом"
+    files:
+      - label: "Главная страница"
+        name: "home"
+        file: "data.json"
+        fields:
+          - label: "Главный экран (Hero)"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "Заголовок", name: "title", widget: "string" }
+              - { label: "Описание", name: "subtitle", widget: "text" }
+              - { label: "Фоновое фото", name: "image", widget: "image" }
+
+          - label: "Блок Философия"
+            name: "philosophy"
+            widget: "object"
+            fields:
+              - { label: "Фото процесса", name: "image", widget: "image" }
+              - { label: "Тег 1 (Черный)", name: "tag1", widget: "string" }
+              - { label: "Тег 2 (Бирюзовый)", name: "tag2", widget: "string" }
+              - { label: "Заголовок", name: "title", widget: "string" }
+              - { label: "Текст", name: "text", widget: "text" }
+
+          - label: "Блок Технологии"
+            name: "features"
+            widget: "object"
+            fields:
+              - { label: "Главный заголовок", name: "title", widget: "string" }
+              - { label: "Пункт 1 - Заголовок", name: "item1_title", widget: "string" }
+              - { label: "Пункт 1 - Текст", name: "item1_text", widget: "text" }
+              - { label: "Пункт 2 - Заголовок", name: "item2_title", widget: "string" }
+              - { label: "Пункт 2 - Текст", name: "item2_text", widget: "text" }
+              - { label: "Пункт 3 - Заголовок", name: "item3_title", widget: "string" }
+              - { label: "Пункт 3 - Текст", name: "item3_text", widget: "text" }
+
+          - label: "Галерея"
+            name: "gallery"
+            widget: "object"
+            fields:
+              - { label: "Заголовок", name: "title", widget: "string" }
+              - { label: "Фото 1 (Большое)", name: "img1", widget: "image" }
+              - { label: "Фото 2 (Широкое)", name: "img2", widget: "image" }
+              - { label: "Фото 3 (Высокое)", name: "img3", widget: "image" }
+              - { label: "Фото 4", name: "img4", widget: "image" }
+              - { label: "Фото 5 (Широкое)", name: "img5", widget: "image" }
+              - { label: "Фото 6", name: "img6", widget: "image" }
+
+          - label: "Каталог"
+            name: "catalog"
+            widget: "object"
+            fields:
+              - { label: "Заголовок каталога", name: "title", widget: "string" }
+              
+              - label: "Модель 1"
+                name: "model1"
+                widget: "object"
+                fields:
+                  - { label: "Фото", name: "image", widget: "image" }
+                  - { label: "Название", name: "name", widget: "string" }
+                  - { label: "Габариты", name: "dim", widget: "string" }
+                  - { label: "Объем", name: "vol", widget: "string" }
+                  - { label: "Вес", name: "weight", widget: "string" }
+
+              - label: "Модель 2"
+                name: "model2"
+                widget: "object"
+                fields:
+                  - { label: "Фото", name: "image", widget: "image" }
+                  - { label: "Название", name: "name", widget: "string" }
+                  - { label: "Габариты", name: "dim", widget: "string" }
+                  - { label: "Объем", name: "vol", widget: "string" }
+                  - { label: "Вес", name: "weight", widget: "string" }
+
+              - label: "Модель 3"
+                name: "model3"
+                widget: "object"
+                fields:
+                  - { label: "Фото", name: "image", widget: "image" }
+                  - { label: "Название", name: "name", widget: "string" }
+                  - { label: "Габариты", name: "dim", widget: "string" }
+                  - { label: "Объем", name: "vol", widget: "string" }
+                  - { label: "Вес", name: "weight", widget: "string" }
+
+              - label: "Модель 4 (Новинка)"
+                name: "model4"
+                widget: "object"
+                fields:
+                  - { label: "Текст бейджа", name: "badge", widget: "string" }
+                  - { label: "Фото", name: "image", widget: "image" }
+                  - { label: "Название", name: "name", widget: "string" }
+                  - { label: "Габариты", name: "dim", widget: "string" }
+                  - { label: "Объем", name: "vol", widget: "string" }
+                  - { label: "Вес", name: "weight", widget: "string" }
+
+          - label: "Форма заявки"
+            name: "form"
+            widget: "object"
+            fields:
+              - { label: "Заголовок формы", name: "title", widget: "string" }
+
+          - label: "Подвал сайта (Футер)"
+            name: "footer"
+            widget: "object"
+            fields:
+              - { label: "Описание бренда", name: "desc", widget: "text" }
+              - { label: "Юридический текст", name: "legal", widget: "text" }

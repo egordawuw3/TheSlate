@@ -13,11 +13,13 @@
     
     <link rel="preload" as="image" href="assets/hero.webp" fetchpriority="high">
 
+    <!-- === ИНТЕГРАЦИЯ АДМИНКИ (Netlify Identity) === -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
     <!-- === FAVICON === -->
     <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
-    <!-- <link rel="manifest" href="site.webmanifest"> -->
 
     <!-- Open Graph (VK, Telegram, Facebook) -->
     <meta property="og:type" content="website">
@@ -524,10 +526,10 @@
 
     <!-- HERO -->
     <section class="hero">
-        <img src="assets/hero.webp" alt="Архитектурные бассейны the slate" class="hero-img" id="hero-img" fetchpriority="high" decoding="sync">
+        <img data-cms="hero.image" src="assets/hero.webp" alt="Архитектурные бассейны the slate" class="hero-img" id="hero-img" fetchpriority="high" decoding="sync">
         <div class="hero-content fade-up">
-            <h1>Новое поколение<br>бассейнов</h1>
-            <p style="margin-top: 24px; font-size: clamp(1rem, 2vw, 1.2rem); max-width: 530px; opacity: 0.9; line-height: 1.5;">
+            <h1 data-cms="hero.title">Новое поколение<br>бассейнов</h1>
+            <p data-cms="hero.subtitle" style="margin-top: 24px; font-size: clamp(1rem, 2vw, 1.2rem); max-width: 530px; opacity: 0.9; line-height: 1.5;">
                 Новое поколение надувных бассейнов премиум класса, идеальная геометрия, экологичные материалы. Безупречная интеграция в ваш экстерьер
             </p>
             
@@ -549,15 +551,15 @@
     <section class="philosophy" id="philosophy">
         <div class="container">
             <div class="phil-img fade-up">
-                <img src="assets/photo.webp" alt="Процесс установки архитектурного бассейна the slate" loading="lazy">
+                <img data-cms="philosophy.image" src="assets/photo.webp" alt="Процесс установки архитектурного бассейна the slate" loading="lazy">
             </div>
             <div class="phil-text fade-up" style="transition-delay: 0.1s;">
                 <div style="margin-bottom: 24px;" class="tech-font">
-                    <span class="color-dot" style="background: var(--graphite);"></span> Технология капельного вязания &nbsp;&nbsp;&nbsp;
-                    <span class="color-dot" style="background: var(--turquoise);"></span> Высокая плотность ПВХ
+                    <span class="color-dot" style="background: var(--graphite);"></span> <span data-cms="philosophy.tag1">Технология капельного вязания</span> &nbsp;&nbsp;&nbsp;
+                    <span class="color-dot" style="background: var(--turquoise);"></span> <span data-cms="philosophy.tag2">Высокая плотность ПВХ</span>
                 </div>
-                <h2>Безупречная форма.<br>Быстрая установка.</h2>
-                <p style="font-size: clamp(1rem, 2vw, 1.125rem); color: var(--text-gray); line-height: 1.6;">
+                <h2 data-cms="philosophy.title">Безупречная форма.<br>Быстрая установка.</h2>
+                <p data-cms="philosophy.text" style="font-size: clamp(1rem, 2vw, 1.125rem); color: var(--text-gray); line-height: 1.6;">
                     Прочнейшее бескаркасное инженерное решение. Устанавливается за считаные минуты, интегрируются в любой ландшафт, создавая иллюзию бескрайнего океана прямо у вас на участке.
                 </p>
             </div>
@@ -567,17 +569,17 @@
     <!-- FEATURES -->
     <div class="features-wrapper" id="features">
         <div class="container fade-up">
-            <h2>Инженерия комфорта</h2>
+            <h2 data-cms="features.title">Инженерия комфорта</h2>
             <div class="accordion">
                 <div class="accordion-item fade-up active" tabindex="0" role="button" aria-expanded="true">
                     <div class="accordion-header">
                         <span class="feat-num tech-font">01</span>
-                        <h3 class="feat-title">Структурная прочность</h3>
+                        <h3 class="feat-title" data-cms="features.item1_title">Структурная прочность</h3>
                         <div class="acc-icon">+</div>
                     </div>
                     <div class="accordion-content-wrapper">
                         <div class="accordion-content">
-                            <p>Сверхпрочные материалы обеспечивают невероятную устойчивость. Выдерживает гигантские нагрузки (нагрузка на борт до 700 кг) и экстремальные перепады температур (от -30 до +80 градусов по Цельсию).</p>
+                            <p data-cms="features.item1_text">Сверхпрочные материалы обеспечивают невероятную устойчивость. Выдерживает гигантские нагрузки (нагрузка на борт до 700 кг) и экстремальные перепады температур (от -30 до +80 градусов по Цельсию).</p>
                         </div>
                     </div>
                 </div>
@@ -585,12 +587,12 @@
                 <div class="accordion-item fade-up" tabindex="0" role="button" aria-expanded="false">
                     <div class="accordion-header">
                         <span class="feat-num tech-font">02</span>
-                        <h3 class="feat-title">Чистота монтажа</h3>
+                        <h3 class="feat-title" data-cms="features.item2_title">Чистота монтажа</h3>
                         <div class="acc-icon">+</div>
                     </div>
                     <div class="accordion-content-wrapper">
                         <div class="accordion-content">
-                            <p>Бассейн доставляется на участок и собирается за считаные минуты. Идеальная
+                            <p data-cms="features.item2_text">Бассейн доставляется на участок и собирается за считаные минуты. Идеальная
 интеграция без длительных бетонных работ, тяжелой строительной техники и
 гор строительного мусора на вашем ландшафте.</p>
                         </div>
@@ -600,12 +602,12 @@
                 <div class="accordion-item fade-up" tabindex="0" role="button" aria-expanded="false">
                     <div class="accordion-header">
                         <span class="feat-num tech-font">03</span>
-                        <h3 class="feat-title">Гибкость интеграции</h3>
+                        <h3 class="feat-title" data-cms="features.item3_title">Гибкость интеграции</h3>
                         <div class="acc-icon">+</div>
                     </div>
                     <div class="accordion-content-wrapper">
                         <div class="accordion-content">
-                            <p>Инновационная конструкция позволяет легко интегрировать бассейн в землю, подиум или террасу. Бассейн работает по принципу прочнейшей базы, обеспечивая
+                            <p data-cms="features.item3_text">Инновационная конструкция позволяет легко интегрировать бассейн в землю, подиум или террасу. Бассейн работает по принципу прочнейшей базы, обеспечивая
 безупречный внешний вид, прочность и практичность.</p>
                         </div>
                     </div>
@@ -617,14 +619,14 @@
     <!-- BENTO GALLERY -->
     <section class="gallery" id="gallery">
         <div class="container">
-            <h2 class="fade-up">Авторский цвет</h2>
+            <h2 class="fade-up" data-cms="gallery.title">Авторский цвет</h2>
             <div class="gal-grid">
-                <div class="gal-item fade-up"><img src="assets/photo.webp" alt="Архитектурный каркасный бассейн, интегрированный в ландшафт" loading="lazy"></div>
-                <div class="gal-item fade-up" style="transition-delay: 0.1s;"><img src="assets/photo2.webp" alt="Интеграция бассейна the slate с деревянной террасой" loading="lazy"></div>
-                <div class="gal-item fade-up" style="transition-delay: 0.2s;"><img src="assets/photo3.webp" alt="Премиальный бассейн на территории загородной виллы" loading="lazy"></div>
-                <div class="gal-item fade-up"><img src="assets/photo4.webp" alt="Современное архитектурное решение для водоема" loading="lazy"></div>
-                <div class="gal-item fade-up" style="transition-delay: 0.1s;"><img src="assets/photo5.webp" alt="Дизайн зоны отдыха с каркасной системой" loading="lazy"></div>
-                <div class="gal-item fade-up" style="transition-delay: 0.2s;"><img src="assets/photo6.webp" alt="Вечерний экстерьер с подсветкой бассейна" loading="lazy"></div>
+                <div class="gal-item fade-up"><img data-cms="gallery.img1" src="assets/photo.webp" alt="Архитектурный каркасный бассейн, интегрированный в ландшафт" loading="lazy"></div>
+                <div class="gal-item fade-up" style="transition-delay: 0.1s;"><img data-cms="gallery.img2" src="assets/photo2.webp" alt="Интеграция бассейна the slate с деревянной террасой" loading="lazy"></div>
+                <div class="gal-item fade-up" style="transition-delay: 0.2s;"><img data-cms="gallery.img3" src="assets/photo3.webp" alt="Премиальный бассейн на территории загородной виллы" loading="lazy"></div>
+                <div class="gal-item fade-up"><img data-cms="gallery.img4" src="assets/photo4.webp" alt="Современное архитектурное решение для водоема" loading="lazy"></div>
+                <div class="gal-item fade-up" style="transition-delay: 0.1s;"><img data-cms="gallery.img5" src="assets/photo5.webp" alt="Дизайн зоны отдыха с каркасной системой" loading="lazy"></div>
+                <div class="gal-item fade-up" style="transition-delay: 0.2s;"><img data-cms="gallery.img6" src="assets/photo6.webp" alt="Вечерний экстерьер с подсветкой бассейна" loading="lazy"></div>
             </div>
         </div>
     </section>
@@ -632,20 +634,20 @@
     <!-- CATALOG -->
     <div class="catalog-wrapper" id="catalog">
         <div class="container">
-            <h2 class="fade-up">Каталог</h2>
+            <h2 class="fade-up" data-cms="catalog.title">Каталог</h2>
             <div class="cards-container">
                 
                 <!-- Модель 1 -->
                 <div class="model-card fade-up">
                     <div class="card-img">
-                        <img src="assets/EGM.webp" alt="Бассейн the slate модель EGM" loading="lazy">
+                        <img data-cms="catalog.model1.image" src="assets/EGM.webp" alt="Бассейн the slate модель EGM" loading="lazy">
                     </div>
                     <div class="card-info">
-                        <div class="card-name tech-font">EGM</div>
+                        <div class="card-name tech-font" data-cms="catalog.model1.name">EGM</div>
                         <div class="card-specs tech-font">
-                            <div class="spec"><span class="s-lbl">Габариты</span><span class="s-val">3.0 × 1.2 м</span></div>
-                            <div class="spec"><span class="s-lbl">Объем</span><span class="s-val">7 м³</span></div>
-                            <div class="spec"><span class="s-lbl">Вес</span><span class="s-val">53 кг</span></div>
+                            <div class="spec"><span class="s-lbl">Габариты</span><span class="s-val" data-cms="catalog.model1.dim">3.0 × 1.2 м</span></div>
+                            <div class="spec"><span class="s-lbl">Объем</span><span class="s-val" data-cms="catalog.model1.vol">7 м³</span></div>
+                            <div class="spec"><span class="s-lbl">Вес</span><span class="s-val" data-cms="catalog.model1.weight">53 кг</span></div>
                         </div>
                         <a href="#form" class="card-btn tech-font">
                             Узнать стоимость
@@ -657,14 +659,14 @@
                 <!-- Модель 2 -->
                 <div class="model-card fade-up" style="transition-delay: 0.1s;">
                     <div class="card-img">
-                        <img src="assets/EGl.webp" alt="Бассейн the slate модель EGL" loading="lazy">
+                        <img data-cms="catalog.model2.image" src="assets/EGl.webp" alt="Бассейн the slate модель EGL" loading="lazy">
                     </div>
                     <div class="card-info">
-                        <div class="card-name tech-font">EGL</div>
+                        <div class="card-name tech-font" data-cms="catalog.model2.name">EGL</div>
                         <div class="card-specs tech-font">
-                            <div class="spec"><span class="s-lbl">Габариты</span><span class="s-val">3.7 × 1.2 м</span></div>
-                            <div class="spec"><span class="s-lbl">Объем</span><span class="s-val">11 м³</span></div>
-                            <div class="spec"><span class="s-lbl">Вес</span><span class="s-val">65 кг</span></div>
+                            <div class="spec"><span class="s-lbl">Габариты</span><span class="s-val" data-cms="catalog.model2.dim">3.7 × 1.2 м</span></div>
+                            <div class="spec"><span class="s-lbl">Объем</span><span class="s-val" data-cms="catalog.model2.vol">11 м³</span></div>
+                            <div class="spec"><span class="s-lbl">Вес</span><span class="s-val" data-cms="catalog.model2.weight">65 кг</span></div>
                         </div>
                         <a href="#form" class="card-btn tech-font">
                             Узнать стоимость
@@ -676,14 +678,14 @@
                 <!-- Модель 3 -->
                 <div class="model-card fade-up">
                     <div class="card-img">
-                        <img src="assets/EGXL.webp" alt="Бассейн the slate модель EGXL" loading="lazy">
+                        <img data-cms="catalog.model3.image" src="assets/EGXL.webp" alt="Бассейн the slate модель EGXL" loading="lazy">
                     </div>
                     <div class="card-info">
-                        <div class="card-name tech-font">EGXL</div>
+                        <div class="card-name tech-font" data-cms="catalog.model3.name">EGXL</div>
                         <div class="card-specs tech-font">
-                            <div class="spec"><span class="s-lbl">Габариты</span><span class="s-val">4.0 × 1.5 м</span></div>
-                            <div class="spec"><span class="s-lbl">Объем</span><span class="s-val">16 м³</span></div>
-                            <div class="spec"><span class="s-lbl">Вес</span><span class="s-val">81 кг</span></div>
+                            <div class="spec"><span class="s-lbl">Габариты</span><span class="s-val" data-cms="catalog.model3.dim">4.0 × 1.5 м</span></div>
+                            <div class="spec"><span class="s-lbl">Объем</span><span class="s-val" data-cms="catalog.model3.vol">16 м³</span></div>
+                            <div class="spec"><span class="s-lbl">Вес</span><span class="s-val" data-cms="catalog.model3.weight">81 кг</span></div>
                         </div>
                         <a href="#form" class="card-btn tech-font">
                             Узнать стоимость
@@ -695,15 +697,15 @@
                 <!-- Модель 4 -->
                 <div class="model-card fade-up" style="transition-delay: 0.1s;">
                     <div class="card-img">
-                        <span class="badge-new tech-font">Новинка</span>
-                        <img src="assets/EG2XL.webp" alt="Новинка: Бассейн the slate модель EG2XL" loading="lazy">
+                        <span class="badge-new tech-font" data-cms="catalog.model4.badge">Новинка</span>
+                        <img data-cms="catalog.model4.image" src="assets/EG2XL.webp" alt="Новинка: Бассейн the slate модель EG2XL" loading="lazy">
                     </div>
                     <div class="card-info">
-                        <div class="card-name tech-font">EG2XL</div>
+                        <div class="card-name tech-font" data-cms="catalog.model4.name">EG2XL</div>
                         <div class="card-specs tech-font">
-                            <div class="spec"><span class="s-lbl">Габариты</span><span class="s-val">5.0 × 1.5 м</span></div>
-                            <div class="spec"><span class="s-lbl">Объем</span><span class="s-val">26 м³</span></div>
-                            <div class="spec"><span class="s-lbl">Вес</span><span class="s-val">86 кг</span></div>
+                            <div class="spec"><span class="s-lbl">Габариты</span><span class="s-val" data-cms="catalog.model4.dim">5.0 × 1.5 м</span></div>
+                            <div class="spec"><span class="s-lbl">Объем</span><span class="s-val" data-cms="catalog.model4.vol">26 м³</span></div>
+                            <div class="spec"><span class="s-lbl">Вес</span><span class="s-val" data-cms="catalog.model4.weight">86 кг</span></div>
                         </div>
                         <a href="#form" class="card-btn tech-font">
                             Узнать стоимость
@@ -718,7 +720,7 @@
 
     <!-- FORM -->
     <section class="preorder container" id="form">
-        <h2 class="fade-up">Сделать шаг к идеалу</h2>
+        <h2 class="fade-up" data-cms="form.title">Сделать шаг к идеалу</h2>
         <div class="form-wrapper fade-up">
             <form id="preorder-form">
                 <!-- Настройки FormSubmit -->
@@ -761,7 +763,7 @@
         <div class="footer-grid fade-up">
             <div class="footer-brand">
                 <a href="/" class="logo" style="font-size: 20px; font-weight: 700; letter-spacing: -1px; margin-bottom: 16px; color: #fff; display: inline-block; text-decoration: none;">the slate™</a>
-                <p>Новое поколение бассейнов премиум класса, идеальная геометрия, экологичные материалы. Безупречная интеграция в ваш экстерьер</p>
+                <p data-cms="footer.desc">Новое поколение бассейнов премиум класса, идеальная геометрия, экологичные материалы. Безупречная интеграция в ваш экстерьер</p>
             </div>
             
             <div class="footer-col tech-font">
@@ -796,7 +798,7 @@
         </div>
 
         <div class="footer-bottom-flex tech-font fade-up">
-            <div class="footer-legal-text">
+            <div class="footer-legal-text" data-cms="footer.legal">
                 ИП Корзников Валерий Владимирович | ИНН: 432601231711 | ОГРНИП: 324774600868543<br>
                 Обращаем ваше внимание на то, что данный интернет-сайт носит исключительно информационный характер и ни при каких условиях не является публичной офертой, определяемой положениями Статьи 437 (2) Гражданского кодекса РФ.
             </div>
@@ -817,6 +819,43 @@
 
 <!-- Scripts -->
 <script>
+    // === ИНТЕГРАЦИЯ CMS (Скрипт загрузки из data.json) ===
+    function applyCmsData(data, prefix = '') {
+        Object.keys(data).forEach(key => {
+            const value = data[key];
+            const fullKey = prefix ? `${prefix}.${key}` : key;
+            
+            if (typeof value === 'object' && value !== null) {
+                applyCmsData(value, fullKey); // Уходим вглубь
+            } else {
+                const els = document.querySelectorAll(`[data-cms="${fullKey}"]`);
+                els.forEach(el => {
+                    if (el.tagName === 'IMG') el.src = value;
+                    else el.innerHTML = value;
+                });
+            }
+        });
+    }
+
+    // Загрузка JSON файла
+    fetch('data.json')
+        .then(res => res.json())
+        .then(data => applyCmsData(data))
+        .catch(err => console.log('CMS data not loaded yet:', err));
+
+    // Логика авторизации Netlify CMS (Редирект в админку)
+    if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", user => {
+            if (!user) {
+                window.netlifyIdentity.on("login", () => {
+                    document.location.href = "/admin/";
+                });
+            }
+        });
+    }
+    // ======================================================
+
+
 // 1. ИДЕАЛЬНЫЙ ОБРАБОТЧИК СКРОЛЛА
     const navbar = document.getElementById('navbar');
     const heroImg = document.getElementById('hero-img');
